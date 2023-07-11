@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6EE1E8EB-267B-4C7E-85D8-D73C8F6E6DFE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>App_de_Core__Windows_Forms</RootNamespace>
+    <AssemblyName>App de Core, Windows Forms</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BotonPersonalizado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CLASEPRUEBA.cs" />
+    <Compile Include="ComboBoxPersonalizado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Connected Services\SR\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="etesi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form Compra a Proveedores 2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Compra a Proveedores 2.Designer.cs">
+      <DependentUpon>Form Compra a Proveedores 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form de Manejo de Empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form de Manejo de Empleado.Designer.cs">
+      <DependentUpon>Form de Manejo de Empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form de Manejo de Proveedores Inicialcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form de Manejo de Proveedores Inicialcs.Designer.cs">
+      <DependentUpon>Form de Manejo de Proveedores Inicialcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Manejo de Proveedores 2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Manejo de Proveedores 2.Designer.cs">
+      <DependentUpon>Form Manejo de Proveedores 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Registro de Empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Registro de Empleado.Designer.cs">
+      <DependentUpon>Form Registro de Empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms Compra a Proveedores Inicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms Compra a Proveedores Inicial.Designer.cs">
+      <DependentUpon>Forms Compra a Proveedores Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Login.Designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RGB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RGB.Designer.cs">
+      <DependentUpon>RGB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rgbetesi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedGB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RoundedTextBox.Designer.cs">
+      <DependentUpon>RoundedTextBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form Compra a Proveedores 2.resx">
+      <DependentUpon>Form Compra a Proveedores 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form de Manejo de Empleado.resx">
+      <DependentUpon>Form de Manejo de Empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form de Manejo de Proveedores Inicialcs.resx">
+      <DependentUpon>Form de Manejo de Proveedores Inicialcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form Manejo de Proveedores 2.resx">
+      <DependentUpon>Form Manejo de Proveedores 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form Registro de Empleado.resx">
+      <DependentUpon>Form Registro de Empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms Compra a Proveedores Inicial.resx">
+      <DependentUpon>Forms Compra a Proveedores Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RGB.resx">
+      <DependentUpon>RGB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoundedTextBox.resx">
+      <DependentUpon>RoundedTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.LoginClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.LoginEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ModificarCategoriaEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ModificarClienteResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ModificarEmpleadoResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerAllInventarioResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerCategoriaEmpleadoResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerCategoriaProductoResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerClientePorIDResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerClientesCoindicanResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerComentarioClienteByProductoResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerComprasProductoResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerComprasProveedoresResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerDetallesFactComprasResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerDetallesFactReparacionResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerEmpleadoCoindicanResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerEmpleadoPorIDResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerEnviosByIdFacturaResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerEnviosResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerEstadosResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerInventarioEspecificoResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerMetPagoResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerProductosByIDResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerProductosCoincidanResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerProductosResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerProveedoresByIDResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerProveedoresResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerServiciosResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerSucursalesResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerTarjetaDeUnClienteResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerTipoCompraResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerTipoEstadosResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerTodosEmpleadoResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerVentasByIDResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.ObtenerVentasResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.RegistrarCategoriaEmpleadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.RegistrarClienteResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.RegistrarEmpleadoResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\App_de_Core__Windows_Forms.SR.RegistrarNuevaFacturaResponses.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SR\WebServiceCore.wsdl" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unsplash_qt82DHID50M.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empleado %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagen_Empleado.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empleado %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unsplash_qt82DHID50M1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\esquema-de-boton-circular-de-flecha-hacia-atras-izquierda %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\esquema-de-boton-circular-de-flecha-hacia-atras-izquierda %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\produccion %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proveedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entrega-de-pedidos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estadistica-inferencial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configuraciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\SR\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SR\WebServiceCore.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SR\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SR\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SR\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

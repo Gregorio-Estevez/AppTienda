@@ -1,0 +1,43 @@
+﻿<Application x:Class="CajaDiseño.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CajaDiseño"
+             xmlns:viewModel ="clr-namespace:CajaDiseño.MVVM.ViewModel"
+             xmlns:view ="clr-namespace:CajaDiseño.MVVM.View"
+             StartupUri="LogIn.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source= "Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source= "Theme/TextboxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:ProductosViewModel}">
+                <view:MenuView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ReportesViewModel}">
+                <view:VentasView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:EnviosViewModel}">
+                <view:ComprasView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ReparacionesViewModel}">
+                <view:ReparacionesView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:Ventas2ViewModel}">
+                <view:Ventas2View />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:Compras2ViewModel}">
+                <view:Compras2View />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:Menu2ViewModel}">
+                <view:Menu2View />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:RetiroViewModel}">
+                <view:RetiroView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:ConfiguracionViewModel}">
+                <view:ConfiguracionView />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

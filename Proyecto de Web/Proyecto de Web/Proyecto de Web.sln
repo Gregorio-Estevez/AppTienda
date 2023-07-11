@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mis pantallas del proyecto final", "..\Mis pantallas del proyecto final\Mis pantallas del proyecto final.csproj", "{75CC5884-6573-4B74-B4C8-B88569146469}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ADF2EA61-3471-4BA7-B1F3-36D2F2AE010D} = {ADF2EA61-3471-4BA7-B1F3-36D2F2AE010D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceCore2.0", "..\..\Proyecto de Core\WebServiceCore2.0\WebServiceCore2.0.csproj", "{ADF2EA61-3471-4BA7-B1F3-36D2F2AE010D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75CC5884-6573-4B74-B4C8-B88569146469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75CC5884-6573-4B74-B4C8-B88569146469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75CC5884-6573-4B74-B4C8-B88569146469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75CC5884-6573-4B74-B4C8-B88569146469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF2EA61-3471-4BA7-B1F3-36D2F2AE010D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF2EA61-3471-4BA7-B1F3-36D2F2AE010D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF2EA61-3471-4BA7-B1F3-36D2F2AE010D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF2EA61-3471-4BA7-B1F3-36D2F2AE010D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {088CF234-A529-4C37-974A-89C6B37D79F6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,650 @@
+﻿<UserControl x:Class="CajaDiseño.MVVM.View.RetiroView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CajaDiseño.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="1004" d:DesignWidth="1170"
+             Background="Transparent">
+
+    <StackPanel>
+
+        <StackPanel Margin="0,40,0,40">
+            <Label Content="Retiro Efectivo"
+               FontSize="50"
+               FontFamily="Trocchi"
+               Foreground="#2D2A32"
+               HorizontalAlignment="Center"
+           x:Name="Titulo"/>
+        </StackPanel>
+        <Label Content="Descripcion del Pago:"
+                   FontSize="20"
+                   FontFamily="Trocchi" Width="212"
+                   FontWeight="Bold"
+                   x:Name="Campo1"
+               HorizontalAlignment="Left"
+               Margin="25,20,0,0"/>
+
+        <Border CornerRadius="25"
+                            Background="#FFFFFF"
+                            Width="711"
+                            Height="59"
+                    Margin="-350,-50,-370,0"
+                    BorderThickness="1"
+                    BorderBrush="Black">
+
+            <Grid>
+                <Rectangle StrokeThickness="1" Margin="52,0,-52,0"/>
+                <TextBox
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     VerticalContentAlignment="Center"
+                                     Padding="5"
+                                     Foreground="#2D2A32"
+                                     x:Name="TXB_DescripcionPago"
+                              Height="59" VerticalAlignment="Center" Margin="0,0,10,0" 
+                             />
+            </Grid>
+        </Border>
+
+        <StackPanel Height="307">
+            <Label Content="RD$ 2,000"
+                   Margin="-600,20,0,0"
+            Width="114"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+                    Margin="-600,0,0,0"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" 
+                               Margin="100,0,0,0"/>
+                    <TextBox
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_2000"/>
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="RD$ 1,000"
+                   Margin="-300,-120,0,0"
+            Width="106"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42" RenderTransformOrigin="0.279,0.7"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                    Margin="-300,-40,0,0"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_1000"
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="RD$ 500"
+                   Margin="0,-120,0,0"
+            Width="97"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42" RenderTransformOrigin="0.279,0.7"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                    Margin="0,-40,0,0"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_500"
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="RD$ 200"
+                   Margin="300,-120,0,0"
+            Width="110"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42" RenderTransformOrigin="0.279,0.7"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                    Margin="300,-40,0,0"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_200"
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="RD$ 100"
+                   Margin="600,-120,0,0"
+            Width="98"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42" RenderTransformOrigin="0.279,0.7"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                    Margin="600,-40,0,0"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox Margin="0,0,0,0"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_100"
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="RD$ 50"
+                   Margin="-600,40,0,0"
+            Width="82"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42" RenderTransformOrigin="0.279,0.7"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                    Margin="-600,0,0,0"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox Margin="0,0,0,0"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_50"
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="RD$ 25"
+                   Margin="-300,-120,0,0"
+            Width="82"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42" RenderTransformOrigin="0.279,0.7"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                    Margin="-300,-40,0,0"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox Margin="0,0,0,0"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_25" 
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="RD$ 10"
+                   Margin="0,-120,0,0"
+            Width="83"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42" RenderTransformOrigin="0.279,0.7"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                    Margin="0,-40,0,0"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox Margin="0,0,0,0"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_10"
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="RD$ 5"
+                   Margin="300,-120,0,0"
+            Width="66"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42" RenderTransformOrigin="0.279,0.7"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                    Margin="300,-40,0,0"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox Margin="0,0,0,0"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_5"
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="RD$ 1"
+                   Margin="600,-120,0,0"
+            Width="66"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42" RenderTransformOrigin="0.279,0.7"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                    Margin="600,-40,0,0"
+            Width="100"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox Margin="0,0,0,0"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_1"
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+            <Label Content="Total: "
+                   Margin="300,40,0,0"
+            Width="66"
+            FontSize="20"
+            FontFamily="Inter"
+            FontWeight="Bold" Height="42"/>
+            <Border CornerRadius="5"
+            Background="#FFFFFF"
+                   Margin="550,-50,0,0"
+            Width="150"
+            Height="40"
+            BorderThickness="1"
+            BorderBrush="Black">
+
+                <Grid>
+                    <Rectangle StrokeThickness="1" Margin="100,0,0,0"/>
+                    <TextBox
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="#2D2A32"
+                    x:Name="TXB_Total"
+                                     />
+
+                    <TextBlock IsHitTestVisible="False"
+                    Text="Cantidad:"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="20"
+                    Foreground="#2D2A32"
+                    Grid.Column="1">
+
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+
+                    </TextBlock>
+                </Grid>
+
+            </Border>
+
+        </StackPanel>
+
+        <DataGrid x:Name="DG_Retiro"
+            Height="250"
+            Width="700"
+                  Margin="25"
+                  Background="White" GridLinesVisibility="All" HeadersVisibility="All" BorderBrush="Black">
+            <DataGrid.CellStyle>
+                <Style/>
+            </DataGrid.CellStyle>
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFBA08"/>
+                    <Setter Property="Foreground" Value="#2D2A32"/>
+                    <Setter Property="Padding" Value="50,10,50,10"/>
+                    <Setter Property="FontFamily" Value="Montserrat"/>
+                    <Setter Property="FontSize" Value="25"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID. Retiro" HeaderStringFormat=""/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Descripción"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Monto Total"/>
+            </DataGrid.Columns>
+
+
+
+
+        </DataGrid>
+
+
+    </StackPanel>
+
+
+
+
+
+
+
+
+
+
+</UserControl>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93c3ca4ab57d4232aacd3d5da0851d69" Name="Diagram1">
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Categoria_Empleados" Width="1.5" PointX="5.75" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Categoria_Producto" Width="1.5" PointX="9" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Cliente" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Comentarios_Clientes" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Compra_Producto" Width="1.5" PointX="5.25" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Compras_Proveedores" Width="1.5" PointX="3" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Detalles_Fact_Alquiler" Width="1.5" PointX="10.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Detalles_Fact_Compras" Width="1.5" PointX="13.5" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Detalles_Fact_Reparaciones" Width="1.5" PointX="13.5" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Empleado" Width="1.5" PointX="8" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Envio" Width="1.5" PointX="5.25" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Estado" Width="1.5" PointX="0.75" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Factura" Width="1.5" PointX="8.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Fotos_Productos" Width="1.5" PointX="13.5" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Historico_Cliente" Width="1.5" PointX="3" PointY="41.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Historico_Productos" Width="1.5" PointX="11.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Info_Registro_Cliente" Width="1.5" PointX="5.25" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Info_Registro_Empleados" Width="1.5" PointX="10.25" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Inventario" Width="1.5" PointX="15.5" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Met_Pago" Width="1.5" PointX="6" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Producto" Width="1.5" PointX="11.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Proveedore" Width="1.5" PointX="0.75" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Registro_Cliente" Width="1.5" PointX="5.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Registro_Empleados" Width="1.5" PointX="10.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Servicio" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Sucursale" Width="1.5" PointX="5.75" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Tarjeta_Credito" Width="1.5" PointX="5.25" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Tipo_Compra" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Trans_Tarjeta" Width="1.5" PointX="10.5" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BaseDatosProvicionalModel.Historico_Empleados" Width="1.5" PointX="13.25" PointY="33" IsExpanded="true" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Empleados_Tipo_Empleado_id_tipo_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Historico_Empleados_Tipo_Empleado_id_tipo_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Detalles_Fact_Reparaciones_Categoria_Producto_id_categoria_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Historico_Productos_Categoria_id_categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Productos_Categoria_id_categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Cliente_Estado_id_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Comentarios_Clientes_Cliente_id_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Envios_Cliente_id_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Factura_Cliente_id_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Info_Registro_Cliente_Cliente_id_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Registro_Cliente_Cliente_id_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Tarjeta_Credito_Cliente_id_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Compra_Producto_Compras_Proveedores_id_compra" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Compra_Producto_Productos_id_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Compras_Proveedores_Estado_id_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Compras_Proveedores_Proveedores_id_proveedor" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Compras_Proveedores_Sucursal_id_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Detalles_Fact_Alquiler_Estado_id_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Detalles_Fact_Alquiler_Factura_id_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Detalles_Fact_Alquiler_Producto_id_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Detalles_Fact_Compras_Factura_id_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Detalles_Fact_Compras_Producto_id_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Detalles_Fact_Reparaciones_Estado_id_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Detalles_Fact_Reparaciones_Factura_id_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Empleados_Estado_id_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Empleados_Sucursal_id_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Factura_Empleado_id_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Historico_Empleados_id_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Info_Registro_Empleados_Empleado_id_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Registro_Empleados_Empleado_id_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Envios_Factura_id_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Historico_Cliente_Estado_id_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Historico_Empleados_Estado_id_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Factura_Met_Pago_id_metpago" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Factura_Sucursal_id_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Factura_Tipo_Compra_id_tipo_compra" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Trans_Tarjeta_Factura_id_factuta" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Fotos_Productos_Productos_id_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Inventario_Productos_id_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Inventario_Sucursales_id_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="BaseDatosProvicionalModel.FK_Historico_Sucursal_id_sucursal" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

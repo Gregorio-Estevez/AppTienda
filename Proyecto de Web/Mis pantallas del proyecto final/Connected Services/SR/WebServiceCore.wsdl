@@ -1,0 +1,3870 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://softgames.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://softgames.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://softgames.com/">
+      <s:element name="VerificarLoginCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:LoginClienteRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginClienteRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hash_password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VerificarLoginClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificarLoginClienteResult" type="tns:LoginClienteResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginClienteResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="resultado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VerificarLoginEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:LoginEmpleadoRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginEmpleadoRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hash_password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VerificarLoginEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificarLoginEmpleadoResult" type="tns:LoginEmpleadoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginEmpleadoResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="resultado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarMetPago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Met_Pagos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Met_Pagos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_metpago" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarMetPagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarMetPagoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarMetPago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Met_Pagos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarMetPagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarMetPagoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerMetPago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="soloactivos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerMetPagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerMetPagoResult" type="tns:ObtenerMetPagoResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerMetPagoResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="metodos_pago" type="tns:ArrayOfMet_Pagos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMet_Pagos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Met_Pagos" nillable="true" type="tns:Met_Pagos" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Estados" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Estados">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_estado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre_estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="tipo_estado" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarEstadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Estados" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarEstadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerEstados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="soloactivos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerEstadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerEstadosResult" type="tns:ObtenerEstadosResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerEstadosResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="respuesta" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="estados" type="tns:ArrayOfEstados" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEstados">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Estados" nillable="true" type="tns:Estados" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerTipoEstados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="soloactivos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTipoEstadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTipoEstadosResult" type="tns:ObtenerTipoEstadosResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerTipoEstadosResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipo_Estados" type="tns:ArrayOfTipo_Estado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTipo_Estado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tipo_Estado" nillable="true" type="tns:Tipo_Estado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tipo_Estado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarTipoCompra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Tipo_Compra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Tipo_Compra">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_tipo_compra" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarTipoCompraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarTipoCompraResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarTipoCompra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Tipo_Compra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarTipoCompraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarTipoCompraResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTiposCompra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="soloactivos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTiposCompraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTiposCompraResult" type="tns:ObtenerTipoCompraResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerTipoCompraResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="tiposcompras" type="tns:ArrayOfTipo_Compra" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTipo_Compra">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tipo_Compra" nillable="true" type="tns:Tipo_Compra" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarServicios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Servicios" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Servicios">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_servicio" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarServiciosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarServiciosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarServicio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Servicios" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarServicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarServicioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerServicios">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerServiciosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerServiciosResult" type="tns:ObtenerServiciosResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerServiciosResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="servicios" type="tns:ArrayOfServicios" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfServicios">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Servicios" nillable="true" type="tns:Servicios" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarCategoriaEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Categoria_Empleado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Categoria_Empleado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_categoria" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre_categoria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha_registro" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarCategoriaEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarCategoriaEmpleadoResult" type="tns:RegistrarCategoriaEmpleadoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RegistrarCategoriaEmpleadoResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarCategoriaEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Categoria_Empleado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCategoriaEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModificarCategoriaEmpleadoResult" type="tns:ModificarCategoriaEmpleadoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ModificarCategoriaEmpleadoResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerCategoriaEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="soloactivos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCategoriaEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerCategoriaEmpleadoResult" type="tns:ObtenerCategoriaEmpleadoResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerCategoriaEmpleadoResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="categoria" type="tns:ArrayOfCategoria_Empleado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCategoria_Empleado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Categoria_Empleado" nillable="true" type="tns:Categoria_Empleado" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerCategoriaProductos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="soloactivos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCategoriaProductosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerCategoriaProductosResult" type="tns:ObtenerCategoriaProductoResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerCategoriaProductoResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="categorias" type="tns:ArrayOfCategoria_Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCategoria_Producto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Categoria_Producto" nillable="true" type="tns:Categoria_Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Categoria_Producto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_categoria" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre_categoria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarSucursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Sucursales" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sucursales">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_sucursal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre_sucursal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="direccion_sucursal" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha_registro" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarSucursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarSucursalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarSucursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Sucursales" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarSucursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarSucursalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerSucursales">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="soloactivos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerSucursalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerSucursalesResult" type="tns:ObtenerSucursalesResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerSucursalesResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="sucursales" type="tns:ArrayOfSucursales" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSucursales">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Sucursales" nillable="true" type="tns:Sucursales" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarCategoriaProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Categoria_Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCategoriaProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarCategoriaProductoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCategoriaProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Categoria_Producto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCategoriaProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarCategoriaProductoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Empleado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Empleado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_empleado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipo_empleado" type="tns:Categoria_Empleado" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="salario" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha_nac" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha_registro" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="num_telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="estado" type="tns:Estados" />
+          <s:element minOccurs="0" maxOccurs="1" name="sucursal" type="tns:Sucursales" />
+          <s:element minOccurs="0" maxOccurs="1" name="ruta_foto" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarEmpleadoResult" type="tns:RegistrarEmpleadoResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RegistrarEmpleadoResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="cedulanovalida" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Empleado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModificarEmpleadoResult" type="tns:ModificarEmpleadoResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ModificarEmpleadoResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="cedulanovalida" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerTodosLosEmpleados">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerTodosLosEmpleadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTodosLosEmpleadosResult" type="tns:ObtenerTodosEmpleadoResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerTodosEmpleadoResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="empleados" type="tns:ArrayOfEmpleado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEmpleado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Empleado" nillable="true" type="tns:Empleado" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerEmpleadoPorID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_empleado" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerEmpleadoPorIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerEmpleadoPorIDResult" type="tns:ObtenerEmpleadoPorIDResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerEmpleadoPorIDResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="empleado" type="tns:Empleado" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerEmpleadoCoindican">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerEmpleadoCoindicanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerEmpleadoCoindicanResult" type="tns:ObtenerEmpleadoCoindicanResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerEmpleadoCoindicanResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="empleados" type="tns:ArrayOfEmpleado" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarEnvio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Envios" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Envios">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_envio" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:Cliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="factura" type="tns:Factura" />
+          <s:element minOccurs="0" maxOccurs="1" name="direccion_envio" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="entregado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="entrega_en_sucursal" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cliente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_cliente" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="apellido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha_nac" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="num_telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="estado" type="tns:Estados" />
+          <s:element minOccurs="0" maxOccurs="1" name="ruta_foto" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Factura">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_factura" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="metpago" type="tns:Met_Pagos" />
+          <s:element minOccurs="0" maxOccurs="1" name="empleado" type="tns:Empleado" />
+          <s:element minOccurs="1" maxOccurs="1" name="subtotal_servicio" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipo_compra" type="tns:Tipo_Compra" />
+          <s:element minOccurs="1" maxOccurs="1" name="impuestos" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="total_descuento" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="monto_total" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ncf" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="vencimiento_fact" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre_cliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:Cliente" />
+          <s:element minOccurs="1" maxOccurs="1" name="entrega_domicilio" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="sucursal" type="tns:Sucursales" />
+          <s:element minOccurs="0" maxOccurs="1" name="servicio" type="tns:Servicios" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarEnvioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarEnvioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarEnvio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Envios" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarEnvioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarEnvioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerEnvios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="solonoentregados" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerEnviosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerEnviosResult" type="tns:ObtenerEnviosResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerEnviosResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Envios" type="tns:ArrayOfEnvios" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEnvios">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Envios" nillable="true" type="tns:Envios" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerEnviosByIDFactura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_factura" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerEnviosByIDFacturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerEnviosByIDFacturaResult" type="tns:ObtenerEnviosByIdFacturaResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerEnviosByIdFacturaResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="envio" type="tns:Envios" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarProductos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Productos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Productos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_producto" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="precio" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="categoria" type="tns:Categoria_Producto" />
+          <s:element minOccurs="1" maxOccurs="1" name="descuento" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="punto_reorden" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="foto_productos" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarProductosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarProductosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerProductosByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_prod" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerProductosByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerProductosByIDResult" type="tns:ObtenerProductosByIDResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerProductosByIDResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Producto" type="tns:Productos" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerProductos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="condescontinuados" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerProductosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerProductosResult" type="tns:ObtenerProductosResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerProductosResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="productos" type="tns:ArrayOfProductos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProductos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Productos" nillable="true" type="tns:Productos" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerProductosCoincidan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id_prod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre_prod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerProductosCoincidanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerProductosCoincidanResult" type="tns:ObtenerProductosCoincidanResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerProductosCoincidanResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="productos" type="tns:ArrayOfProductos" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarProductos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Productos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarProductosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarProductosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarProveedores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Proveedores" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Proveedores">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_proveedor" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="rnc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="direccion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarProveedoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarProveedoresResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarProveedores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Proveedores" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarProveedoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarProveedoresResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerProveedores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="soloactivos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerProveedoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerProveedoresResult" type="tns:ObtenerProveedoresResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerProveedoresResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="proveedores" type="tns:ArrayOfProveedores" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProveedores">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Proveedores" nillable="true" type="tns:Proveedores" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerProveedoresByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_proveedor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerProveedoresByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerProveedoresByIDResult" type="tns:ObtenerProveedoresByIDResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerProveedoresByIDResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="proveedor" type="tns:Proveedores" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarComentarioCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Comentarios_Clientes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Comentarios_Clientes">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_comentario" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="calificacion" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="comentario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:Cliente" />
+          <s:element minOccurs="1" maxOccurs="1" name="producto" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarComentarioClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarComentarioClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarComentarioCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Comentarios_Clientes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarComentarioClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarComentarioClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerComentarioClienteByProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_producto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerComentarioClienteByProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerComentarioClienteByProductoResult" type="tns:ObtenerComentarioClienteByProductoResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerComentarioClienteByProductoResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="comentarios" type="tns:ArrayOfComentarios_Clientes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfComentarios_Clientes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comentarios_Clientes" nillable="true" type="tns:Comentarios_Clientes" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerTodosLosInventarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerTodosLosInventariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTodosLosInventariosResult" type="tns:ObtenerAllInventarioResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerAllInventarioResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Inventario" type="tns:ArrayOfInventario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInventario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Inventario" nillable="true" type="tns:Inventario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Inventario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_registro" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="producto" type="tns:Productos" />
+          <s:element minOccurs="1" maxOccurs="1" name="cant_stock" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cant_camino" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="punto_reorden" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sucursal" type="tns:Sucursales" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerInventarioIDSucursalProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_producto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_sucursal" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerInventarioIDSucursalProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerInventarioIDSucursalProductoResult" type="tns:ObtenerInventarioEspecificoResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerInventarioEspecificoResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Inventario" type="tns:Inventario" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerInventariosCoincidanCon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre_sucursal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre_producto" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerInventariosCoincidanConResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerInventariosCoincidanConResult" type="tns:ObtenerAllInventarioResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarComprasProveedores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:RegistrarCompraProveedoresRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RegistrarCompraProveedoresRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="compra" type="tns:Compras_Proveedores" />
+          <s:element minOccurs="0" maxOccurs="1" name="productoscomprados" type="tns:ArrayOfCompra_Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Compras_Proveedores">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_compra" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="cod_envio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha_llegada" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="proveedor" type="tns:Proveedores" />
+          <s:element minOccurs="1" maxOccurs="1" name="valor_total" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="estado" type="tns:Estados" />
+          <s:element minOccurs="0" maxOccurs="1" name="sucursal" type="tns:Sucursales" />
+          <s:element minOccurs="1" maxOccurs="1" name="cant_productos_dif_ordenados" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCompra_Producto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Compra_Producto" nillable="true" type="tns:Compra_Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Compra_Producto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_registro" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="producto" type="tns:Productos" />
+          <s:element minOccurs="0" maxOccurs="1" name="compra" type="tns:Compras_Proveedores" />
+          <s:element minOccurs="1" maxOccurs="1" name="cant_ordenado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="precio_unitario" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarComprasProveedoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarComprasProveedoresResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarComprasProveedores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:RegistrarCompraProveedoresRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarComprasProveedoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarComprasProveedoresResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerComprasProveedores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="porsucursal" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_sucursal" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerComprasProveedoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerComprasProveedoresResult" type="tns:ObtenerComprasProveedoresResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerComprasProveedoresResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="compras" type="tns:ArrayOfCompras_Proveedores" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCompras_Proveedores">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Compras_Proveedores" nillable="true" type="tns:Compras_Proveedores" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerComprasProveedoresEspecifico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="porcodenvio" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pornombresucursal" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="porproveedor" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="porestado" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="campo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerComprasProveedoresEspecificoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerComprasProveedoresEspecificoResult" type="tns:ObtenerComprasProveedoresResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerComprasProducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_compra" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerComprasProductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerComprasProductoResult" type="tns:ObtenerComprasProductoResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerComprasProductoResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="productos" type="tns:ArrayOfCompra_Producto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarIncioFinSesionCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fin" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="inicio" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_cliente" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tiempocon" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarIncioFinSesionClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarIncioFinSesionClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarIncioFinSesionEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fin" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="inicio" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_empleado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tiempocon" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarIncioFinSesionEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarIncioFinSesionEmpleadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Cliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarClienteResult" type="tns:RegistrarClienteResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RegistrarClienteResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="emailtomado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModificarCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Cliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModificarClienteResult" type="tns:ModificarClienteResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ModificarClienteResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="emailtomado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerClientePorID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_client" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerClientePorIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerClientePorIDResult" type="tns:ObtenerClientePorIDResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerClientePorIDResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:Cliente" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerListaClientesCoindican">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerListaClientesCoindicanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerListaClientesCoindicanResult" type="tns:ObtenerClientesCoindicanResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerClientesCoindicanResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:ArrayOfCliente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCliente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cliente" nillable="true" type="tns:Cliente" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarTarjetaCredito">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Tarjeta_Credito" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Tarjeta_Credito">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_tarjeta_credito" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="cliente" type="tns:Cliente" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre_dueno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="num_tarjeta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fecha_vencimiento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cvv" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="activo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarTarjetaCreditoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarTarjetaCreditoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarTarjetaCredito">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Tarjeta_Credito" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarTarjetaCreditoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarTarjetaCreditoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTarjetaDeUnCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_cliente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTarjetaDeUnClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTarjetaDeUnClienteResult" type="tns:ObtenerTarjetaDeUnClienteResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerTarjetaDeUnClienteResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="tarjetas" type="tns:ArrayOfTarjeta_Credito" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTarjeta_Credito">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tarjeta_Credito" nillable="true" type="tns:Tarjeta_Credito" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarInfoRegistroEmpleados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Info_Login" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Info_Login">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cedula_email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="hash_password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarInfoRegistroEmpleadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarInfoRegistroEmpleadosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarInfoRegistroCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Info_Login" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarInfoRegistroClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarInfoRegistroClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarInfoRegistroEmpleados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Info_Login" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarInfoRegistroEmpleadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarInfoRegistroEmpleadosResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarInfoRegistroCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Info_Login" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarInfoRegistroClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarInfoRegistroClienteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarTransTarjeta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Trans_Tarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Trans_Tarjeta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_trans" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="factuta" type="tns:Factura" />
+          <s:element minOccurs="0" maxOccurs="1" name="tarjeta" type="tns:Tarjeta_Credito" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarTransTarjetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarTransTarjetaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarNuevaFactura">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Factura" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarNuevaFacturaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarNuevaFacturaResult" type="tns:RegistrarNuevaFacturaResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RegistrarNuevaFacturaResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_fact" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarDetallesNuevaFacturaCompras">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ArrayOfDetalles_Fact_Compras" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDetalles_Fact_Compras">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Detalles_Fact_Compras" nillable="true" type="tns:Detalles_Fact_Compras" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Detalles_Fact_Compras">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_det_fact" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="factura" type="tns:Factura" />
+          <s:element minOccurs="0" maxOccurs="1" name="producto" type="tns:Productos" />
+          <s:element minOccurs="1" maxOccurs="1" name="cant_producto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="precio_unitario" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="descuento" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarDetallesNuevaFacturaComprasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarDetallesNuevaFacturaComprasResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarDetallesNuevaFacturaReparaciones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ArrayOfDetalles_Fact_Reparaciones" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDetalles_Fact_Reparaciones">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Detalles_Fact_Reparaciones" nillable="true" type="tns:Detalles_Fact_Reparaciones" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Detalles_Fact_Reparaciones">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_det_fact" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="factura" type="tns:Factura" />
+          <s:element minOccurs="0" maxOccurs="1" name="nombre_producto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="categoria_producto" type="tns:Categoria_Producto" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion_producto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion_problema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="valor_reparacion" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha_registro" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fecha_entrega" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="estado" type="tns:Estados" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegistrarDetallesNuevaFacturaReparacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarDetallesNuevaFacturaReparacionesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarEntregaFacturaReparaciones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Detalles_Fact_Reparaciones" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarEntregaFacturaReparacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarEntregaFacturaReparacionesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarReparadoFacturaReparaciones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:Detalles_Fact_Reparaciones" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarReparadoFacturaReparacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarReparadoFacturaReparacionesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerAllVentas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ObtenerVentasRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerVentasRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sucursal" type="tns:Sucursales" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_servicio" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerAllVentasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerAllVentasResult" type="tns:ObtenerVentasResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerVentasResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="facturas" type="tns:ArrayOfFactura" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFactura">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Factura" nillable="true" type="tns:Factura" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerAllVentasDeSucursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ObtenerVentasRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerAllVentasDeSucursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerAllVentasDeSucursalResult" type="tns:ObtenerVentasResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerVentasDeSucursalByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:ObtenerVentasByIDRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerVentasByIDRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id_servicio" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="id_fact" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerVentasDeSucursalByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerVentasDeSucursalByIDResult" type="tns:ObtenerVentasByIDResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerVentasByIDResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="factura" type="tns:Factura" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerDetallesFacturaCompra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_factura" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDetallesFacturaCompraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDetallesFacturaCompraResult" type="tns:ObtenerDetallesFactComprasResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerDetallesFactComprasResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="detalles_compra" type="tns:ArrayOfDetalles_Fact_Compras" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerDetallesFacturaReparacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_factura" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDetallesFacturaReparacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDetallesFacturaReparacionResult" type="tns:ObtenerDetallesFactReparacionResponses" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ObtenerDetallesFactReparacionResponses">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="estado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="detalles_reparaciones" type="tns:ArrayOfDetalles_Fact_Reparaciones" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VerificarLoginClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarLoginCliente" />
+  </wsdl:message>
+  <wsdl:message name="VerificarLoginClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarLoginClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarLoginEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarLoginEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="VerificarLoginEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarLoginEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarMetPagoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarMetPago" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarMetPagoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarMetPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarMetPagoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarMetPago" />
+  </wsdl:message>
+  <wsdl:message name="ModificarMetPagoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarMetPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerMetPagoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerMetPago" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerMetPagoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerMetPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarEstado" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarEstado" />
+  </wsdl:message>
+  <wsdl:message name="ModificarEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEstadosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerEstados" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEstadosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerEstadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoEstadosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoEstados" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoEstadosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoEstadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarTipoCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarTipoCompra" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarTipoCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarTipoCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarTipoCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarTipoCompra" />
+  </wsdl:message>
+  <wsdl:message name="ModificarTipoCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarTipoCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTiposCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTiposCompra" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTiposCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTiposCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarServiciosSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarServicios" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarServiciosSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarServiciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarServicioSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarServicio" />
+  </wsdl:message>
+  <wsdl:message name="ModificarServicioSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerServiciosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerServicios" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerServiciosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerServiciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCategoriaEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarCategoriaEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCategoriaEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarCategoriaEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCategoriaEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarCategoriaEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCategoriaEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarCategoriaEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCategoriaEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCategoriaEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCategoriaEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCategoriaEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCategoriaProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCategoriaProductos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCategoriaProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCategoriaProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarSucursalSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarSucursal" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarSucursalSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarSucursalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarSucursalSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarSucursal" />
+  </wsdl:message>
+  <wsdl:message name="ModificarSucursalSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarSucursalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSucursalesSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerSucursales" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSucursalesSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerSucursalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCategoriaProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarCategoriaProducto" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarCategoriaProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarCategoriaProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCategoriaProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarCategoriaProducto" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCategoriaProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarCategoriaProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="ModificarEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTodosLosEmpleadosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTodosLosEmpleados" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTodosLosEmpleadosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTodosLosEmpleadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEmpleadoPorIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerEmpleadoPorID" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEmpleadoPorIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerEmpleadoPorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEmpleadoCoindicanSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerEmpleadoCoindican" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEmpleadoCoindicanSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerEmpleadoCoindicanResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarEnvioSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarEnvio" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarEnvioSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarEnvioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarEnvioSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarEnvio" />
+  </wsdl:message>
+  <wsdl:message name="ModificarEnvioSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarEnvioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEnviosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerEnvios" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEnviosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerEnviosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEnviosByIDFacturaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerEnviosByIDFactura" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEnviosByIDFacturaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerEnviosByIDFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarProductos" />
+  </wsdl:message>
+  <wsdl:message name="ModificarProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProductosByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosByID" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProductosByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerProductos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProductosCoincidanSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosCoincidan" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProductosCoincidanSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerProductosCoincidanResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarProductosSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarProductos" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarProductosSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarProveedoresSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarProveedores" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarProveedoresSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarProveedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarProveedoresSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarProveedores" />
+  </wsdl:message>
+  <wsdl:message name="ModificarProveedoresSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarProveedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProveedoresSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerProveedores" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProveedoresSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerProveedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProveedoresByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerProveedoresByID" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProveedoresByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerProveedoresByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarComentarioClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarComentarioCliente" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarComentarioClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarComentarioClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarComentarioClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarComentarioCliente" />
+  </wsdl:message>
+  <wsdl:message name="ModificarComentarioClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarComentarioClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComentarioClienteByProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerComentarioClienteByProducto" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComentarioClienteByProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerComentarioClienteByProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTodosLosInventariosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTodosLosInventarios" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTodosLosInventariosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTodosLosInventariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInventarioIDSucursalProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerInventarioIDSucursalProducto" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInventarioIDSucursalProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerInventarioIDSucursalProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInventariosCoincidanConSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerInventariosCoincidanCon" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerInventariosCoincidanConSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerInventariosCoincidanConResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarComprasProveedoresSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarComprasProveedores" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarComprasProveedoresSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarComprasProveedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarComprasProveedoresSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarComprasProveedores" />
+  </wsdl:message>
+  <wsdl:message name="ModificarComprasProveedoresSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarComprasProveedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComprasProveedoresSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerComprasProveedores" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComprasProveedoresSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerComprasProveedoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComprasProveedoresEspecificoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerComprasProveedoresEspecifico" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComprasProveedoresEspecificoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerComprasProveedoresEspecificoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComprasProductoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerComprasProducto" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerComprasProductoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerComprasProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarIncioFinSesionClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarIncioFinSesionCliente" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarIncioFinSesionClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarIncioFinSesionClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarIncioFinSesionEmpleadoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarIncioFinSesionEmpleado" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarIncioFinSesionEmpleadoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarIncioFinSesionEmpleadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarCliente" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarCliente" />
+  </wsdl:message>
+  <wsdl:message name="ModificarClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerClientePorIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerClientePorID" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerClientePorIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerClientePorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerListaClientesCoindicanSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerListaClientesCoindican" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerListaClientesCoindicanSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerListaClientesCoindicanResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarTarjetaCreditoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarTarjetaCredito" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarTarjetaCreditoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarTarjetaCreditoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarTarjetaCreditoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarTarjetaCredito" />
+  </wsdl:message>
+  <wsdl:message name="ModificarTarjetaCreditoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarTarjetaCreditoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTarjetaDeUnClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTarjetaDeUnCliente" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTarjetaDeUnClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTarjetaDeUnClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarInfoRegistroEmpleadosSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarInfoRegistroEmpleados" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarInfoRegistroEmpleadosSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarInfoRegistroEmpleadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarInfoRegistroClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarInfoRegistroCliente" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarInfoRegistroClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarInfoRegistroClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarInfoRegistroEmpleadosSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarInfoRegistroEmpleados" />
+  </wsdl:message>
+  <wsdl:message name="ModificarInfoRegistroEmpleadosSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarInfoRegistroEmpleadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarInfoRegistroClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarInfoRegistroCliente" />
+  </wsdl:message>
+  <wsdl:message name="ModificarInfoRegistroClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarInfoRegistroClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarTransTarjetaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarTransTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarTransTarjetaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarTransTarjetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarNuevaFacturaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarNuevaFactura" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarNuevaFacturaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarNuevaFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarDetallesNuevaFacturaComprasSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarDetallesNuevaFacturaCompras" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarDetallesNuevaFacturaComprasSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarDetallesNuevaFacturaComprasResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarDetallesNuevaFacturaReparacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarDetallesNuevaFacturaReparaciones" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarDetallesNuevaFacturaReparacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarDetallesNuevaFacturaReparacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarEntregaFacturaReparacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarEntregaFacturaReparaciones" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarEntregaFacturaReparacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarEntregaFacturaReparacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarReparadoFacturaReparacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarReparadoFacturaReparaciones" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarReparadoFacturaReparacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarReparadoFacturaReparacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerAllVentasSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerAllVentas" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerAllVentasSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerAllVentasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerAllVentasDeSucursalSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerAllVentasDeSucursal" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerAllVentasDeSucursalSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerAllVentasDeSucursalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerVentasDeSucursalByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerVentasDeSucursalByID" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerVentasDeSucursalByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerVentasDeSucursalByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesFacturaCompraSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDetallesFacturaCompra" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesFacturaCompraSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDetallesFacturaCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesFacturaReparacionSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDetallesFacturaReparacion" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesFacturaReparacionSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDetallesFacturaReparacionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceCoreSoap">
+    <wsdl:operation name="VerificarLoginCliente">
+      <wsdl:input message="tns:VerificarLoginClienteSoapIn" />
+      <wsdl:output message="tns:VerificarLoginClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarLoginEmpleado">
+      <wsdl:input message="tns:VerificarLoginEmpleadoSoapIn" />
+      <wsdl:output message="tns:VerificarLoginEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarMetPago">
+      <wsdl:input message="tns:RegistrarMetPagoSoapIn" />
+      <wsdl:output message="tns:RegistrarMetPagoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMetPago">
+      <wsdl:input message="tns:ModificarMetPagoSoapIn" />
+      <wsdl:output message="tns:ModificarMetPagoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMetPago">
+      <wsdl:input message="tns:ObtenerMetPagoSoapIn" />
+      <wsdl:output message="tns:ObtenerMetPagoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarEstado">
+      <wsdl:input message="tns:RegistrarEstadoSoapIn" />
+      <wsdl:output message="tns:RegistrarEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEstado">
+      <wsdl:input message="tns:ModificarEstadoSoapIn" />
+      <wsdl:output message="tns:ModificarEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEstados">
+      <wsdl:input message="tns:ObtenerEstadosSoapIn" />
+      <wsdl:output message="tns:ObtenerEstadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstados">
+      <wsdl:input message="tns:ObtenerTipoEstadosSoapIn" />
+      <wsdl:output message="tns:ObtenerTipoEstadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarTipoCompra">
+      <wsdl:input message="tns:RegistrarTipoCompraSoapIn" />
+      <wsdl:output message="tns:RegistrarTipoCompraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarTipoCompra">
+      <wsdl:input message="tns:ModificarTipoCompraSoapIn" />
+      <wsdl:output message="tns:ModificarTipoCompraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTiposCompra">
+      <wsdl:input message="tns:ObtenerTiposCompraSoapIn" />
+      <wsdl:output message="tns:ObtenerTiposCompraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarServicios">
+      <wsdl:input message="tns:RegistrarServiciosSoapIn" />
+      <wsdl:output message="tns:RegistrarServiciosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicio">
+      <wsdl:input message="tns:ModificarServicioSoapIn" />
+      <wsdl:output message="tns:ModificarServicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerServicios">
+      <wsdl:input message="tns:ObtenerServiciosSoapIn" />
+      <wsdl:output message="tns:ObtenerServiciosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCategoriaEmpleado">
+      <wsdl:input message="tns:RegistrarCategoriaEmpleadoSoapIn" />
+      <wsdl:output message="tns:RegistrarCategoriaEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCategoriaEmpleado">
+      <wsdl:input message="tns:ModificarCategoriaEmpleadoSoapIn" />
+      <wsdl:output message="tns:ModificarCategoriaEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCategoriaEmpleado">
+      <wsdl:input message="tns:ObtenerCategoriaEmpleadoSoapIn" />
+      <wsdl:output message="tns:ObtenerCategoriaEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCategoriaProductos">
+      <wsdl:input message="tns:ObtenerCategoriaProductosSoapIn" />
+      <wsdl:output message="tns:ObtenerCategoriaProductosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarSucursal">
+      <wsdl:input message="tns:RegistrarSucursalSoapIn" />
+      <wsdl:output message="tns:RegistrarSucursalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarSucursal">
+      <wsdl:input message="tns:ModificarSucursalSoapIn" />
+      <wsdl:output message="tns:ModificarSucursalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSucursales">
+      <wsdl:input message="tns:ObtenerSucursalesSoapIn" />
+      <wsdl:output message="tns:ObtenerSucursalesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCategoriaProducto">
+      <wsdl:input message="tns:RegistrarCategoriaProductoSoapIn" />
+      <wsdl:output message="tns:RegistrarCategoriaProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCategoriaProducto">
+      <wsdl:input message="tns:ModificarCategoriaProductoSoapIn" />
+      <wsdl:output message="tns:ModificarCategoriaProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarEmpleado">
+      <wsdl:input message="tns:RegistrarEmpleadoSoapIn" />
+      <wsdl:output message="tns:RegistrarEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEmpleado">
+      <wsdl:input message="tns:ModificarEmpleadoSoapIn" />
+      <wsdl:output message="tns:ModificarEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosLosEmpleados">
+      <wsdl:input message="tns:ObtenerTodosLosEmpleadosSoapIn" />
+      <wsdl:output message="tns:ObtenerTodosLosEmpleadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEmpleadoPorID">
+      <wsdl:input message="tns:ObtenerEmpleadoPorIDSoapIn" />
+      <wsdl:output message="tns:ObtenerEmpleadoPorIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEmpleadoCoindican">
+      <wsdl:input message="tns:ObtenerEmpleadoCoindicanSoapIn" />
+      <wsdl:output message="tns:ObtenerEmpleadoCoindicanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarEnvio">
+      <wsdl:input message="tns:RegistrarEnvioSoapIn" />
+      <wsdl:output message="tns:RegistrarEnvioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEnvio">
+      <wsdl:input message="tns:ModificarEnvioSoapIn" />
+      <wsdl:output message="tns:ModificarEnvioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEnvios">
+      <wsdl:input message="tns:ObtenerEnviosSoapIn" />
+      <wsdl:output message="tns:ObtenerEnviosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEnviosByIDFactura">
+      <wsdl:input message="tns:ObtenerEnviosByIDFacturaSoapIn" />
+      <wsdl:output message="tns:ObtenerEnviosByIDFacturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProductos">
+      <wsdl:input message="tns:ModificarProductosSoapIn" />
+      <wsdl:output message="tns:ModificarProductosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductosByID">
+      <wsdl:input message="tns:ObtenerProductosByIDSoapIn" />
+      <wsdl:output message="tns:ObtenerProductosByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductos">
+      <wsdl:input message="tns:ObtenerProductosSoapIn" />
+      <wsdl:output message="tns:ObtenerProductosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductosCoincidan">
+      <wsdl:input message="tns:ObtenerProductosCoincidanSoapIn" />
+      <wsdl:output message="tns:ObtenerProductosCoincidanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarProductos">
+      <wsdl:input message="tns:RegistrarProductosSoapIn" />
+      <wsdl:output message="tns:RegistrarProductosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarProveedores">
+      <wsdl:input message="tns:RegistrarProveedoresSoapIn" />
+      <wsdl:output message="tns:RegistrarProveedoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProveedores">
+      <wsdl:input message="tns:ModificarProveedoresSoapIn" />
+      <wsdl:output message="tns:ModificarProveedoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedores">
+      <wsdl:input message="tns:ObtenerProveedoresSoapIn" />
+      <wsdl:output message="tns:ObtenerProveedoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedoresByID">
+      <wsdl:input message="tns:ObtenerProveedoresByIDSoapIn" />
+      <wsdl:output message="tns:ObtenerProveedoresByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarComentarioCliente">
+      <wsdl:input message="tns:RegistrarComentarioClienteSoapIn" />
+      <wsdl:output message="tns:RegistrarComentarioClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarComentarioCliente">
+      <wsdl:input message="tns:ModificarComentarioClienteSoapIn" />
+      <wsdl:output message="tns:ModificarComentarioClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComentarioClienteByProducto">
+      <wsdl:input message="tns:ObtenerComentarioClienteByProductoSoapIn" />
+      <wsdl:output message="tns:ObtenerComentarioClienteByProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosLosInventarios">
+      <wsdl:input message="tns:ObtenerTodosLosInventariosSoapIn" />
+      <wsdl:output message="tns:ObtenerTodosLosInventariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInventarioIDSucursalProducto">
+      <wsdl:input message="tns:ObtenerInventarioIDSucursalProductoSoapIn" />
+      <wsdl:output message="tns:ObtenerInventarioIDSucursalProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInventariosCoincidanCon">
+      <wsdl:input message="tns:ObtenerInventariosCoincidanConSoapIn" />
+      <wsdl:output message="tns:ObtenerInventariosCoincidanConSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarComprasProveedores">
+      <wsdl:input message="tns:RegistrarComprasProveedoresSoapIn" />
+      <wsdl:output message="tns:RegistrarComprasProveedoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarComprasProveedores">
+      <wsdl:input message="tns:ModificarComprasProveedoresSoapIn" />
+      <wsdl:output message="tns:ModificarComprasProveedoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComprasProveedores">
+      <wsdl:input message="tns:ObtenerComprasProveedoresSoapIn" />
+      <wsdl:output message="tns:ObtenerComprasProveedoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComprasProveedoresEspecifico">
+      <wsdl:input message="tns:ObtenerComprasProveedoresEspecificoSoapIn" />
+      <wsdl:output message="tns:ObtenerComprasProveedoresEspecificoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComprasProducto">
+      <wsdl:input message="tns:ObtenerComprasProductoSoapIn" />
+      <wsdl:output message="tns:ObtenerComprasProductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarIncioFinSesionCliente">
+      <wsdl:input message="tns:RegistrarIncioFinSesionClienteSoapIn" />
+      <wsdl:output message="tns:RegistrarIncioFinSesionClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarIncioFinSesionEmpleado">
+      <wsdl:input message="tns:RegistrarIncioFinSesionEmpleadoSoapIn" />
+      <wsdl:output message="tns:RegistrarIncioFinSesionEmpleadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCliente">
+      <wsdl:input message="tns:RegistrarClienteSoapIn" />
+      <wsdl:output message="tns:RegistrarClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCliente">
+      <wsdl:input message="tns:ModificarClienteSoapIn" />
+      <wsdl:output message="tns:ModificarClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClientePorID">
+      <wsdl:input message="tns:ObtenerClientePorIDSoapIn" />
+      <wsdl:output message="tns:ObtenerClientePorIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaClientesCoindican">
+      <wsdl:input message="tns:ObtenerListaClientesCoindicanSoapIn" />
+      <wsdl:output message="tns:ObtenerListaClientesCoindicanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarTarjetaCredito">
+      <wsdl:input message="tns:RegistrarTarjetaCreditoSoapIn" />
+      <wsdl:output message="tns:RegistrarTarjetaCreditoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarTarjetaCredito">
+      <wsdl:input message="tns:ModificarTarjetaCreditoSoapIn" />
+      <wsdl:output message="tns:ModificarTarjetaCreditoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTarjetaDeUnCliente">
+      <wsdl:input message="tns:ObtenerTarjetaDeUnClienteSoapIn" />
+      <wsdl:output message="tns:ObtenerTarjetaDeUnClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarInfoRegistroEmpleados">
+      <wsdl:input message="tns:RegistrarInfoRegistroEmpleadosSoapIn" />
+      <wsdl:output message="tns:RegistrarInfoRegistroEmpleadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarInfoRegistroCliente">
+      <wsdl:input message="tns:RegistrarInfoRegistroClienteSoapIn" />
+      <wsdl:output message="tns:RegistrarInfoRegistroClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarInfoRegistroEmpleados">
+      <wsdl:input message="tns:ModificarInfoRegistroEmpleadosSoapIn" />
+      <wsdl:output message="tns:ModificarInfoRegistroEmpleadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarInfoRegistroCliente">
+      <wsdl:input message="tns:ModificarInfoRegistroClienteSoapIn" />
+      <wsdl:output message="tns:ModificarInfoRegistroClienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarTransTarjeta">
+      <wsdl:input message="tns:RegistrarTransTarjetaSoapIn" />
+      <wsdl:output message="tns:RegistrarTransTarjetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarNuevaFactura">
+      <wsdl:input message="tns:RegistrarNuevaFacturaSoapIn" />
+      <wsdl:output message="tns:RegistrarNuevaFacturaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarDetallesNuevaFacturaCompras">
+      <wsdl:input message="tns:RegistrarDetallesNuevaFacturaComprasSoapIn" />
+      <wsdl:output message="tns:RegistrarDetallesNuevaFacturaComprasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarDetallesNuevaFacturaReparaciones">
+      <wsdl:input message="tns:RegistrarDetallesNuevaFacturaReparacionesSoapIn" />
+      <wsdl:output message="tns:RegistrarDetallesNuevaFacturaReparacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEntregaFacturaReparaciones">
+      <wsdl:input message="tns:ActualizarEntregaFacturaReparacionesSoapIn" />
+      <wsdl:output message="tns:ActualizarEntregaFacturaReparacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarReparadoFacturaReparaciones">
+      <wsdl:input message="tns:ActualizarReparadoFacturaReparacionesSoapIn" />
+      <wsdl:output message="tns:ActualizarReparadoFacturaReparacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAllVentas">
+      <wsdl:input message="tns:ObtenerAllVentasSoapIn" />
+      <wsdl:output message="tns:ObtenerAllVentasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAllVentasDeSucursal">
+      <wsdl:input message="tns:ObtenerAllVentasDeSucursalSoapIn" />
+      <wsdl:output message="tns:ObtenerAllVentasDeSucursalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerVentasDeSucursalByID">
+      <wsdl:input message="tns:ObtenerVentasDeSucursalByIDSoapIn" />
+      <wsdl:output message="tns:ObtenerVentasDeSucursalByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesFacturaCompra">
+      <wsdl:input message="tns:ObtenerDetallesFacturaCompraSoapIn" />
+      <wsdl:output message="tns:ObtenerDetallesFacturaCompraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesFacturaReparacion">
+      <wsdl:input message="tns:ObtenerDetallesFacturaReparacionSoapIn" />
+      <wsdl:output message="tns:ObtenerDetallesFacturaReparacionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceCoreSoap" type="tns:WebServiceCoreSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificarLoginCliente">
+      <soap:operation soapAction="http://softgames.com/VerificarLoginCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarLoginEmpleado">
+      <soap:operation soapAction="http://softgames.com/VerificarLoginEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarMetPago">
+      <soap:operation soapAction="http://softgames.com/RegistrarMetPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMetPago">
+      <soap:operation soapAction="http://softgames.com/ModificarMetPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMetPago">
+      <soap:operation soapAction="http://softgames.com/ObtenerMetPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarEstado">
+      <soap:operation soapAction="http://softgames.com/RegistrarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEstado">
+      <soap:operation soapAction="http://softgames.com/ModificarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEstados">
+      <soap:operation soapAction="http://softgames.com/ObtenerEstados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstados">
+      <soap:operation soapAction="http://softgames.com/ObtenerTipoEstados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarTipoCompra">
+      <soap:operation soapAction="http://softgames.com/RegistrarTipoCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarTipoCompra">
+      <soap:operation soapAction="http://softgames.com/ModificarTipoCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTiposCompra">
+      <soap:operation soapAction="http://softgames.com/ObtenerTiposCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarServicios">
+      <soap:operation soapAction="http://softgames.com/RegistrarServicios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicio">
+      <soap:operation soapAction="http://softgames.com/ModificarServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerServicios">
+      <soap:operation soapAction="http://softgames.com/ObtenerServicios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCategoriaEmpleado">
+      <soap:operation soapAction="http://softgames.com/RegistrarCategoriaEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCategoriaEmpleado">
+      <soap:operation soapAction="http://softgames.com/ModificarCategoriaEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCategoriaEmpleado">
+      <soap:operation soapAction="http://softgames.com/ObtenerCategoriaEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCategoriaProductos">
+      <soap:operation soapAction="http://softgames.com/ObtenerCategoriaProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarSucursal">
+      <soap:operation soapAction="http://softgames.com/RegistrarSucursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarSucursal">
+      <soap:operation soapAction="http://softgames.com/ModificarSucursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSucursales">
+      <soap:operation soapAction="http://softgames.com/ObtenerSucursales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCategoriaProducto">
+      <soap:operation soapAction="http://softgames.com/RegistrarCategoriaProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCategoriaProducto">
+      <soap:operation soapAction="http://softgames.com/ModificarCategoriaProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarEmpleado">
+      <soap:operation soapAction="http://softgames.com/RegistrarEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEmpleado">
+      <soap:operation soapAction="http://softgames.com/ModificarEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosLosEmpleados">
+      <soap:operation soapAction="http://softgames.com/ObtenerTodosLosEmpleados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEmpleadoPorID">
+      <soap:operation soapAction="http://softgames.com/ObtenerEmpleadoPorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEmpleadoCoindican">
+      <soap:operation soapAction="http://softgames.com/ObtenerEmpleadoCoindican" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarEnvio">
+      <soap:operation soapAction="http://softgames.com/RegistrarEnvio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEnvio">
+      <soap:operation soapAction="http://softgames.com/ModificarEnvio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEnvios">
+      <soap:operation soapAction="http://softgames.com/ObtenerEnvios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEnviosByIDFactura">
+      <soap:operation soapAction="http://softgames.com/ObtenerEnviosByIDFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProductos">
+      <soap:operation soapAction="http://softgames.com/ModificarProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductosByID">
+      <soap:operation soapAction="http://softgames.com/ObtenerProductosByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductos">
+      <soap:operation soapAction="http://softgames.com/ObtenerProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductosCoincidan">
+      <soap:operation soapAction="http://softgames.com/ObtenerProductosCoincidan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarProductos">
+      <soap:operation soapAction="http://softgames.com/RegistrarProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarProveedores">
+      <soap:operation soapAction="http://softgames.com/RegistrarProveedores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProveedores">
+      <soap:operation soapAction="http://softgames.com/ModificarProveedores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedores">
+      <soap:operation soapAction="http://softgames.com/ObtenerProveedores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedoresByID">
+      <soap:operation soapAction="http://softgames.com/ObtenerProveedoresByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarComentarioCliente">
+      <soap:operation soapAction="http://softgames.com/RegistrarComentarioCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarComentarioCliente">
+      <soap:operation soapAction="http://softgames.com/ModificarComentarioCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComentarioClienteByProducto">
+      <soap:operation soapAction="http://softgames.com/ObtenerComentarioClienteByProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosLosInventarios">
+      <soap:operation soapAction="http://softgames.com/ObtenerTodosLosInventarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInventarioIDSucursalProducto">
+      <soap:operation soapAction="http://softgames.com/ObtenerInventarioIDSucursalProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInventariosCoincidanCon">
+      <soap:operation soapAction="http://softgames.com/ObtenerInventariosCoincidanCon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarComprasProveedores">
+      <soap:operation soapAction="http://softgames.com/RegistrarComprasProveedores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarComprasProveedores">
+      <soap:operation soapAction="http://softgames.com/ModificarComprasProveedores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComprasProveedores">
+      <soap:operation soapAction="http://softgames.com/ObtenerComprasProveedores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComprasProveedoresEspecifico">
+      <soap:operation soapAction="http://softgames.com/ObtenerComprasProveedoresEspecifico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComprasProducto">
+      <soap:operation soapAction="http://softgames.com/ObtenerComprasProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarIncioFinSesionCliente">
+      <soap:operation soapAction="http://softgames.com/RegistrarIncioFinSesionCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarIncioFinSesionEmpleado">
+      <soap:operation soapAction="http://softgames.com/RegistrarIncioFinSesionEmpleado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCliente">
+      <soap:operation soapAction="http://softgames.com/RegistrarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCliente">
+      <soap:operation soapAction="http://softgames.com/ModificarCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClientePorID">
+      <soap:operation soapAction="http://softgames.com/ObtenerClientePorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaClientesCoindican">
+      <soap:operation soapAction="http://softgames.com/ObtenerListaClientesCoindican" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarTarjetaCredito">
+      <soap:operation soapAction="http://softgames.com/RegistrarTarjetaCredito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarTarjetaCredito">
+      <soap:operation soapAction="http://softgames.com/ModificarTarjetaCredito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTarjetaDeUnCliente">
+      <soap:operation soapAction="http://softgames.com/ObtenerTarjetaDeUnCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarInfoRegistroEmpleados">
+      <soap:operation soapAction="http://softgames.com/RegistrarInfoRegistroEmpleados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarInfoRegistroCliente">
+      <soap:operation soapAction="http://softgames.com/RegistrarInfoRegistroCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarInfoRegistroEmpleados">
+      <soap:operation soapAction="http://softgames.com/ModificarInfoRegistroEmpleados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarInfoRegistroCliente">
+      <soap:operation soapAction="http://softgames.com/ModificarInfoRegistroCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarTransTarjeta">
+      <soap:operation soapAction="http://softgames.com/RegistrarTransTarjeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarNuevaFactura">
+      <soap:operation soapAction="http://softgames.com/RegistrarNuevaFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarDetallesNuevaFacturaCompras">
+      <soap:operation soapAction="http://softgames.com/RegistrarDetallesNuevaFacturaCompras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarDetallesNuevaFacturaReparaciones">
+      <soap:operation soapAction="http://softgames.com/RegistrarDetallesNuevaFacturaReparaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEntregaFacturaReparaciones">
+      <soap:operation soapAction="http://softgames.com/ActualizarEntregaFacturaReparaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarReparadoFacturaReparaciones">
+      <soap:operation soapAction="http://softgames.com/ActualizarReparadoFacturaReparaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAllVentas">
+      <soap:operation soapAction="http://softgames.com/ObtenerAllVentas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAllVentasDeSucursal">
+      <soap:operation soapAction="http://softgames.com/ObtenerAllVentasDeSucursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerVentasDeSucursalByID">
+      <soap:operation soapAction="http://softgames.com/ObtenerVentasDeSucursalByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesFacturaCompra">
+      <soap:operation soapAction="http://softgames.com/ObtenerDetallesFacturaCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesFacturaReparacion">
+      <soap:operation soapAction="http://softgames.com/ObtenerDetallesFacturaReparacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceCoreSoap12" type="tns:WebServiceCoreSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VerificarLoginCliente">
+      <soap12:operation soapAction="http://softgames.com/VerificarLoginCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarLoginEmpleado">
+      <soap12:operation soapAction="http://softgames.com/VerificarLoginEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarMetPago">
+      <soap12:operation soapAction="http://softgames.com/RegistrarMetPago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMetPago">
+      <soap12:operation soapAction="http://softgames.com/ModificarMetPago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMetPago">
+      <soap12:operation soapAction="http://softgames.com/ObtenerMetPago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarEstado">
+      <soap12:operation soapAction="http://softgames.com/RegistrarEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEstado">
+      <soap12:operation soapAction="http://softgames.com/ModificarEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEstados">
+      <soap12:operation soapAction="http://softgames.com/ObtenerEstados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstados">
+      <soap12:operation soapAction="http://softgames.com/ObtenerTipoEstados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarTipoCompra">
+      <soap12:operation soapAction="http://softgames.com/RegistrarTipoCompra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarTipoCompra">
+      <soap12:operation soapAction="http://softgames.com/ModificarTipoCompra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTiposCompra">
+      <soap12:operation soapAction="http://softgames.com/ObtenerTiposCompra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarServicios">
+      <soap12:operation soapAction="http://softgames.com/RegistrarServicios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarServicio">
+      <soap12:operation soapAction="http://softgames.com/ModificarServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerServicios">
+      <soap12:operation soapAction="http://softgames.com/ObtenerServicios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCategoriaEmpleado">
+      <soap12:operation soapAction="http://softgames.com/RegistrarCategoriaEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCategoriaEmpleado">
+      <soap12:operation soapAction="http://softgames.com/ModificarCategoriaEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCategoriaEmpleado">
+      <soap12:operation soapAction="http://softgames.com/ObtenerCategoriaEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCategoriaProductos">
+      <soap12:operation soapAction="http://softgames.com/ObtenerCategoriaProductos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarSucursal">
+      <soap12:operation soapAction="http://softgames.com/RegistrarSucursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarSucursal">
+      <soap12:operation soapAction="http://softgames.com/ModificarSucursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSucursales">
+      <soap12:operation soapAction="http://softgames.com/ObtenerSucursales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCategoriaProducto">
+      <soap12:operation soapAction="http://softgames.com/RegistrarCategoriaProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCategoriaProducto">
+      <soap12:operation soapAction="http://softgames.com/ModificarCategoriaProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarEmpleado">
+      <soap12:operation soapAction="http://softgames.com/RegistrarEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEmpleado">
+      <soap12:operation soapAction="http://softgames.com/ModificarEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosLosEmpleados">
+      <soap12:operation soapAction="http://softgames.com/ObtenerTodosLosEmpleados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEmpleadoPorID">
+      <soap12:operation soapAction="http://softgames.com/ObtenerEmpleadoPorID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEmpleadoCoindican">
+      <soap12:operation soapAction="http://softgames.com/ObtenerEmpleadoCoindican" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarEnvio">
+      <soap12:operation soapAction="http://softgames.com/RegistrarEnvio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEnvio">
+      <soap12:operation soapAction="http://softgames.com/ModificarEnvio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEnvios">
+      <soap12:operation soapAction="http://softgames.com/ObtenerEnvios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEnviosByIDFactura">
+      <soap12:operation soapAction="http://softgames.com/ObtenerEnviosByIDFactura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProductos">
+      <soap12:operation soapAction="http://softgames.com/ModificarProductos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductosByID">
+      <soap12:operation soapAction="http://softgames.com/ObtenerProductosByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductos">
+      <soap12:operation soapAction="http://softgames.com/ObtenerProductos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductosCoincidan">
+      <soap12:operation soapAction="http://softgames.com/ObtenerProductosCoincidan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarProductos">
+      <soap12:operation soapAction="http://softgames.com/RegistrarProductos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarProveedores">
+      <soap12:operation soapAction="http://softgames.com/RegistrarProveedores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarProveedores">
+      <soap12:operation soapAction="http://softgames.com/ModificarProveedores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedores">
+      <soap12:operation soapAction="http://softgames.com/ObtenerProveedores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProveedoresByID">
+      <soap12:operation soapAction="http://softgames.com/ObtenerProveedoresByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarComentarioCliente">
+      <soap12:operation soapAction="http://softgames.com/RegistrarComentarioCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarComentarioCliente">
+      <soap12:operation soapAction="http://softgames.com/ModificarComentarioCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComentarioClienteByProducto">
+      <soap12:operation soapAction="http://softgames.com/ObtenerComentarioClienteByProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosLosInventarios">
+      <soap12:operation soapAction="http://softgames.com/ObtenerTodosLosInventarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInventarioIDSucursalProducto">
+      <soap12:operation soapAction="http://softgames.com/ObtenerInventarioIDSucursalProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInventariosCoincidanCon">
+      <soap12:operation soapAction="http://softgames.com/ObtenerInventariosCoincidanCon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarComprasProveedores">
+      <soap12:operation soapAction="http://softgames.com/RegistrarComprasProveedores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarComprasProveedores">
+      <soap12:operation soapAction="http://softgames.com/ModificarComprasProveedores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComprasProveedores">
+      <soap12:operation soapAction="http://softgames.com/ObtenerComprasProveedores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComprasProveedoresEspecifico">
+      <soap12:operation soapAction="http://softgames.com/ObtenerComprasProveedoresEspecifico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerComprasProducto">
+      <soap12:operation soapAction="http://softgames.com/ObtenerComprasProducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarIncioFinSesionCliente">
+      <soap12:operation soapAction="http://softgames.com/RegistrarIncioFinSesionCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarIncioFinSesionEmpleado">
+      <soap12:operation soapAction="http://softgames.com/RegistrarIncioFinSesionEmpleado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarCliente">
+      <soap12:operation soapAction="http://softgames.com/RegistrarCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCliente">
+      <soap12:operation soapAction="http://softgames.com/ModificarCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClientePorID">
+      <soap12:operation soapAction="http://softgames.com/ObtenerClientePorID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListaClientesCoindican">
+      <soap12:operation soapAction="http://softgames.com/ObtenerListaClientesCoindican" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarTarjetaCredito">
+      <soap12:operation soapAction="http://softgames.com/RegistrarTarjetaCredito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarTarjetaCredito">
+      <soap12:operation soapAction="http://softgames.com/ModificarTarjetaCredito" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTarjetaDeUnCliente">
+      <soap12:operation soapAction="http://softgames.com/ObtenerTarjetaDeUnCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarInfoRegistroEmpleados">
+      <soap12:operation soapAction="http://softgames.com/RegistrarInfoRegistroEmpleados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarInfoRegistroCliente">
+      <soap12:operation soapAction="http://softgames.com/RegistrarInfoRegistroCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarInfoRegistroEmpleados">
+      <soap12:operation soapAction="http://softgames.com/ModificarInfoRegistroEmpleados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarInfoRegistroCliente">
+      <soap12:operation soapAction="http://softgames.com/ModificarInfoRegistroCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarTransTarjeta">
+      <soap12:operation soapAction="http://softgames.com/RegistrarTransTarjeta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarNuevaFactura">
+      <soap12:operation soapAction="http://softgames.com/RegistrarNuevaFactura" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarDetallesNuevaFacturaCompras">
+      <soap12:operation soapAction="http://softgames.com/RegistrarDetallesNuevaFacturaCompras" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarDetallesNuevaFacturaReparaciones">
+      <soap12:operation soapAction="http://softgames.com/RegistrarDetallesNuevaFacturaReparaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEntregaFacturaReparaciones">
+      <soap12:operation soapAction="http://softgames.com/ActualizarEntregaFacturaReparaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarReparadoFacturaReparaciones">
+      <soap12:operation soapAction="http://softgames.com/ActualizarReparadoFacturaReparaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAllVentas">
+      <soap12:operation soapAction="http://softgames.com/ObtenerAllVentas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerAllVentasDeSucursal">
+      <soap12:operation soapAction="http://softgames.com/ObtenerAllVentasDeSucursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerVentasDeSucursalByID">
+      <soap12:operation soapAction="http://softgames.com/ObtenerVentasDeSucursalByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesFacturaCompra">
+      <soap12:operation soapAction="http://softgames.com/ObtenerDetallesFacturaCompra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesFacturaReparacion">
+      <soap12:operation soapAction="http://softgames.com/ObtenerDetallesFacturaReparacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceCore">
+    <wsdl:port name="WebServiceCoreSoap" binding="tns:WebServiceCoreSoap">
+      <soap:address location="https://localhost:44323/WebServiceCore.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceCoreSoap12" binding="tns:WebServiceCoreSoap12">
+      <soap12:address location="https://localhost:44323/WebServiceCore.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

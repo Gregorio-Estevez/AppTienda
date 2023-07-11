@@ -1,0 +1,242 @@
+﻿<Window x:Class="CajaDiseño.WindowDetallesCompras"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CajaDiseño"
+        mc:Ignorable="d"
+        Title="Detalles Compras" Height="600" Width="1000">
+    <StackPanel Margin="25">
+        <Label Content="Compras"
+               FontSize="50"
+               FontFamily="Trocchi"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"/>
+
+       
+
+
+        <Label Content="Producto: "
+               FontSize="20"
+               FontFamily="Trocchi"
+               FontWeight="Bold"
+               Width="116"
+               HorizontalAlignment="Left"
+               Margin="20,10,0,0"/>
+
+
+        <Border CornerRadius="25"
+                    Background="#FFFFFF"
+                    Width="300"
+                    Height="59"
+                    Margin="-350,-40,0,0"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    VerticalAlignment="Center">
+
+            <Grid>
+                <Rectangle StrokeThickness="1" Margin="0,0,0,0"/>
+                <TextBox
+                        BorderThickness="0"
+                        Background="Transparent"
+                        VerticalContentAlignment="Center"
+                        Padding="5"
+                        Foreground="#2D2A32"
+                        x:Name="Searchbox2"
+                        Height="59" 
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,0"/>
+
+            </Grid>
+
+        </Border>
+        <Label Content="Precio Unitario: "
+               Margin="-750,50,0,0"
+            FontSize="20"
+            FontFamily="Trocchi"
+            FontWeight="Bold"
+            Width="162"
+               />
+
+
+        <Border CornerRadius="25"
+                    Background="#FFFFFF"
+                    Width="250"
+                    Height="59"
+                    Margin="-300,-50,0,0"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    VerticalAlignment="Center">
+
+            <Grid>
+                <Rectangle StrokeThickness="1" Margin="0,0,0,0"/>
+                <TextBox
+                        BorderThickness="0"
+                        Background="Transparent"
+                        VerticalContentAlignment="Center"
+                        Padding="5"
+                        Foreground="#2D2A32"
+                        x:Name="Searchbox3"
+                        Height="59" 
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,0"/>
+
+            </Grid>
+
+        </Border>
+        <Label Content="Cant. Ordenada: "
+               Margin="-750,50,0,0"
+            FontSize="20"
+            FontFamily="Trocchi"
+            FontWeight="Bold"
+            Width="162"
+               />
+
+
+        <Border CornerRadius="25"
+                    Background="#FFFFFF"
+                    Width="250"
+                    Height="59"
+                    Margin="-300,-50,0,0"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    VerticalAlignment="Center">
+
+            <Grid>
+                <Rectangle StrokeThickness="1" Margin="0,0,0,0"/>
+                <TextBox
+                        BorderThickness="0"
+                        Background="Transparent"
+                        VerticalContentAlignment="Center"
+                        Padding="5"
+                        Foreground="#2D2A32"
+                        x:Name="Searchbox4"
+                        Height="59" 
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,0"/>
+
+            </Grid>
+
+        </Border>
+        <Label Content="Proveedor: "
+               Margin="-750,50,0,0"
+            FontSize="20"
+            FontFamily="Trocchi"
+            FontWeight="Bold"
+            Width="162"
+               />
+
+
+        <Border CornerRadius="25"
+                    Background="#FFFFFF"
+                    Width="300"
+                    Height="59"
+                    Margin="-350,-40,0,0"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    VerticalAlignment="Center">
+
+            <Grid>
+                <Rectangle StrokeThickness="1" Margin="0,0,0,0"/>
+                <TextBox
+                        BorderThickness="0"
+                        Background="Transparent"
+                        VerticalContentAlignment="Center"
+                        Padding="5"
+                        Foreground="#2D2A32"
+                        x:Name="Searchbox5"
+                        Height="59" 
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,0"/>
+
+            </Grid>
+
+        </Border>
+
+
+
+        <Border  CornerRadius ="25" Width="400"
+                Height="200"
+                BorderThickness="2"
+                BorderBrush="Black"
+                Margin="500,-400,0,0">
+            <Image Width="400"
+               Height="200"/>
+        </Border>
+
+
+        <Button Width="150"
+                    Height="68"
+                    Content="Atrás"
+                    Foreground="White"
+                    FontSize="20"
+                    FontFamily="Times New Roman"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontWeight="Bold"
+                    FontStyle="Normal"
+                    Margin="500,-50,0,0"
+                    Background="#2E86AB">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0" X="30"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="2" BlurRadius="10"/>
+            </Button.Effect>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="15" 
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" 
+                                              HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Label Content="Estado: "
+            FontSize="20"
+               Margin="-750,20,0,0"
+            FontFamily="Trocchi"
+            FontWeight="Bold"
+            Width="162"
+               />
+
+
+        <Border CornerRadius="25"
+                    Background="#FFFFFF"
+                    Width="300"
+                    Height="59"
+                    Margin="-350,-40,0,0"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    VerticalAlignment="Center">
+
+            <Grid>
+                <Rectangle StrokeThickness="1" Margin="0,0,0,0"/>
+                <TextBox
+                        BorderThickness="0"
+                        Background="Transparent"
+                        VerticalContentAlignment="Center"
+                        Padding="5"
+                        Foreground="#2D2A32"
+                        x:Name="Searchbox6"
+                        Height="59" 
+                        VerticalAlignment="Center"
+                        Margin="0,0,0,0"/>
+
+            </Grid>
+
+        </Border>
+
+
+
+
+
+
+    </StackPanel>
+</Window>

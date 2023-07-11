@@ -1,0 +1,276 @@
+﻿<UserControl x:Class="CajaDiseño.MVVM.View.Compras2View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CajaDiseño.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="1024" d:DesignWidth="1440"
+             Background="Transparent">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+
+            <TextBlock Text="ID Fact."
+                       FontSize="26"
+                       FontFamily="Trocchi"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"
+                       Margin="20,0,0,0"/>
+
+            <TextBox x:Name="TXB_IDFactura"
+                 Width="50"
+                       Height="50"
+                       BorderThickness="2,2,2,2"
+                       Margin="20,0,0,0">
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2"/>
+                </TextBox.Effect>
+
+            </TextBox>
+            <TextBlock VerticalAlignment="Center"
+                Text="Compras"
+                   Foreground="#2D2A32"
+                   FontSize="50"
+                   FontFamily="Times New Roman"
+                   HorizontalAlignment="Center"
+                   Margin="350,20,0,40" FontWeight="Bold" FontStyle="Normal"/>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Width="234"
+                 Height="30"
+                 Text="Buscar Compra:"
+                 FontSize="26"
+                 FontFamily="Inter"
+                 FontWeight="Bold" 
+                 TextAlignment="Center" 
+                 Background="#00000000"/>
+
+            <ComboBox Width="140" 
+                      Height="50"
+                      Margin="20,0,0,0">
+                
+            </ComboBox>
+
+                <!--<TextBox   Width="300"
+                       Height="50"
+                       BorderThickness="1"
+                       VerticalAlignment="Center"
+                       Margin="150,0,0,0"
+                       Text="Código del Proveedor"
+                       TextAlignment="Left"
+                       Foreground="#2D2A32"
+                       VerticalContentAlignment="Center"
+                           BorderBrush="Black"
+                       Background="Transparent">
+                    <TextBox.Effect>
+                        <DropShadowEffect BlurRadius="10"/>
+                    </TextBox.Effect>
+                </TextBox>-->
+
+
+            <TextBox x:Name="txtIDFactura"
+                     FontSize="26"
+                     FontWeight="Medium"
+                     FontFamily="Montserrat"
+                     Background="White"
+                     Foreground="#2D2A32"
+                     CaretBrush="Black"
+                     BorderBrush="#2D2A32"
+                     BorderThickness="2" 
+                     Height="58" 
+                     TextChanged="txtSubtotal_TextChanged"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Left"
+                     Margin="150,0,15,0"
+                     Width="500">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBlock IsHitTestVisible="False"
+                                       Text="Teléfono"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="10,0,0,0"
+                                       FontFamily="Inter"
+                                       FontSize="20"
+                                       Foreground="#2D2A32"
+                                       Grid.Column="1">
+
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=Searchbox}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                        <Setter Property="Visibility" Value="Hidden"/>
+                    </Style>
+                </TextBlock.Style>
+
+            </TextBlock>
+
+        </StackPanel>
+
+
+        <DataGrid x:Name="DG_ComprasProducto"
+            Height="420"
+                  Margin="25,50,25,25"
+                  Background="White" GridLinesVisibility="All" HeadersVisibility="All" BorderBrush="Black">
+            <DataGrid.CellStyle>
+                <Style/>
+            </DataGrid.CellStyle>
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFBA08"/>
+                    <Setter Property="Foreground" Value="#2D2A32"/>
+                    <Setter Property="Padding" Value="40,10,0,10"/>
+                    <Setter Property="FontFamily" Value="Montserrat"/>
+                    <Setter Property="FontSize" Value="25"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID. Producto" HeaderStringFormat=""/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Producto Ordenado"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Precio Unitario"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Cant.Ordenada"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Proveedor"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Estado"/>
+            </DataGrid.Columns>
+
+
+
+
+        </DataGrid>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Subtotal:"
+                       Foreground="#2D2A32"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="TXB_Subtotal"
+                     FontSize="26"
+                     FontWeight="Medium"
+                     FontFamily="Montserrat"
+                     Background="White"
+                     Foreground="#2D2A32"
+                     CaretBrush="Black"
+                     BorderBrush="#2D2A32"
+                     BorderThickness="2" 
+                     Height="58" 
+                     TextChanged="txtSubtotal_TextChanged"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Left"
+                     Margin="15,0,15,0"
+                     Width="205">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <TextBlock Text="Descuento:"
+                       Foreground="#2D2A32"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="TXB_Descuento"
+                     FontSize="26"
+                     FontWeight="Medium"
+                     FontFamily="Montserrat"
+                     Background="White"
+                     Foreground="#2D2A32"
+                     CaretBrush="Black"
+                     BorderBrush="#2D2A32"
+                     BorderThickness="2" 
+                     Height="58" 
+                     TextChanged="txtDescuento_TextChanged"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Left"
+                     Margin="15,0,15,0"
+                     Width="205">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <TextBlock Text="Total:"
+                       Foreground="#2D2A32"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="TXB_Total"
+                     FontSize="26"
+                     FontWeight="Medium"
+                     FontFamily="Montserrat"
+                     Background="White"
+                     Foreground="#2D2A32"
+                     CaretBrush="Black"
+                     BorderBrush="#2D2A32"
+                     BorderThickness="2" 
+                     Height="58" 
+                     TextChanged="txTotal_TextChanged"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Left"
+                     Margin="15,0,15,0"
+                     Width="205">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" 
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center">
+            <Button x:Name="BTN_Detalles" Width="300"
+                    Height="68"
+                    Content="Detalles"
+                    Foreground="White"
+                    FontSize="25"
+                    FontFamily="Times New Roman"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontWeight="Bold"
+                    FontStyle="Normal"
+                    Margin="0,0,0,0"
+                    Background="#2E86AB" Click="Compras_Detalles_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0" X="0"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Effect>
+                    <DropShadowEffect ShadowDepth="2" BlurRadius="10"/>
+                </Button.Effect>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" 
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" 
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
